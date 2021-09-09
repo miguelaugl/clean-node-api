@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint 'src/**'",
     "test": "jest",
+    "test:watch": "yarn test --watch",
     "test:staged": "jest"
   },
   "devDependencies": {
