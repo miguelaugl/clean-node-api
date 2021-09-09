@@ -5,9 +5,9 @@
   "license": "MIT",
   "scripts": {
     "lint": "eslint 'src/**'",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "yarn test --watch",
-    "test:staged": "jest"
+    "test:staged": "yarn test"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
