@@ -10,13 +10,16 @@ services:
       - 27017:27017
   api:
     container_name: api-container
-    build: .
-    image: clean-node-api
+    image: node:12
+    working_dir: /usr/src/clean-node-api
     restart: always
-    command: npm start
+    command: bash -c "npm install --only=prod"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/clean-node-api
     volumes:
-      - ./dist:/usr/src/clean-node-api/dist
-    ports: 
+      - ./dist/:/usr/src/clean-node-api/dist/
+      - ./package.json:/usr/src/clean-node-api/package.json
+    ports:
       - 5050:5050
     links:
       - mongo
