@@ -1,3 +1,4 @@
+import { DbAuthentication } from './db-authentication'
 import {
   AccountModel,
   AuthenticationModel,
@@ -6,7 +7,6 @@ import {
   LoadAccountByEmailRepository,
   UpdateAccessTokenRepository,
 } from './db-authentication-protocols'
-import { DbAuthentication } from './db-authentication'
 
 type SutTypes = {
   sut: DbAuthentication

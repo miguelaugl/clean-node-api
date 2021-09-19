@@ -1,6 +1,7 @@
-import { Express, Router } from 'express'
 import fs from 'fs'
 import { join } from 'path'
+
+import { Express, Router } from 'express'
 
 export default (app: Express): void => {
   const router = Router()
