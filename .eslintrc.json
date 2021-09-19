@@ -5,7 +5,7 @@
     "eslint-plugin-unused-imports"
   ],
   "parserOptions": {
-    "project": "./tsconfig.eslint.json"
+    "project": "./tsconfig.json"
   },
   "rules": {
     "comma-dangle": ["error", {
