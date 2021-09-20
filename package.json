@@ -51,5 +51,8 @@
     "mongodb": "^3.6.3",
     "nodemon": "^2.0.12",
     "validator": "^13.6.0"
+  },
+  "_moduleAliases": {
+    "@": "dist"
   }
 }
