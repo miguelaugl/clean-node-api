@@ -1,3 +1,5 @@
+import MockDate from 'mockdate'
+
 import { noContent, ok, serverError } from '@/presentation/helpers/http/http-helper'
 
 import { LoadSurveysController } from './load-surveys-controller'
@@ -45,6 +47,14 @@ const makeSut = (): SutTypes => {
 }
 
 describe('LoadSurveys Controller', () => {
+  beforeAll(() => {
+    MockDate.set(new Date())
+  })
+
+  afterAll(() => {
+    MockDate.reset()
+  })
+
   it('should call LoadSurveys', async () => {
     const { sut, loadSurveysStub } = makeSut()
     const loadSpy = jest.spyOn(loadSurveysStub, 'load')
