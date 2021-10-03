@@ -7,8 +7,7 @@ import { SurveyMongoRepository } from './survey-mongo-repository'
 
 let surveyCollection: Collection
 
-const makeFakeSurveys = (): SurveyModel[] => ([{
-  id: 'any_id',
+const makeFakeSurveys = (): Array<Omit<SurveyModel, 'id'>> => ([{
   question: 'any_question',
   answers: [{
     image: 'any_image',
@@ -16,7 +15,6 @@ const makeFakeSurveys = (): SurveyModel[] => ([{
   }],
   date: new Date(),
 }, {
-  id: 'other_id',
   question: 'other_question',
   answers: [{
     image: 'other_image',
@@ -67,6 +65,7 @@ describe('Survey Mongo Repository', () => {
       const sut = makeSut()
       const surveys = await sut.loadAll()
       expect(surveys.length).toBe(2)
+      expect(surveys[0].id).toBeTruthy()
       expect(surveys[0].question).toBe('any_question')
       expect(surveys[1].question).toBe('other_question')
     })
@@ -85,6 +84,7 @@ describe('Survey Mongo Repository', () => {
       const sut = makeSut()
       const survey = await sut.loadById(res.ops[0]._id)
       expect(survey).toBeTruthy()
+      expect(survey.id).toBeTruthy()
     })
   })
 })
